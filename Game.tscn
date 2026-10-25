@@ -1,15 +1,13 @@
 [gd_scene format=3 uid="uid://dvxioiltrqqa6"]
 
-[ext_resource type="Script" uid="uid://dj0vk2u56w5hi" path="res://scripts/csharp/Player.cs" id="1_xkndl"]
+[ext_resource type="Script" uid="uid://dj0vk2u56w5hi" path="res://scripts/Player.cs" id="1_xkndl"]
 [ext_resource type="Texture2D" uid="uid://ccg1m6aydlhfr" path="res://assets/Meepits/Meepit_faerie.webp" id="2_u44n3"]
 [ext_resource type="PackedScene" uid="uid://wyvgt5l2bxdu" path="res://scenes/killzones.tscn" id="3_sb48q"]
 [ext_resource type="PackedScene" uid="uid://170au8lns2f" path="res://scenes/pipe_scene.tscn" id="4_sb48q"]
-[ext_resource type="Script" uid="uid://w6arllnbodcn" path="res://scripts/csharp/KillZone.cs" id="4_t88pq"]
+[ext_resource type="PackedScene" uid="uid://dyq8vnrpiipq8" path="res://floor.tscn" id="4_t88pq"]
+[ext_resource type="Script" path="res://scripts/PipeScene.cs" id="6_r0x5m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkgw6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0x5m"]
-size = Vector2(610, 21)
 
 [node name="Game" type="Node2D" unique_id=1432982470]
 
@@ -33,15 +31,11 @@ zoom = Vector2(2, 2)
 
 [node name="Killzone Top Top" parent="." unique_id=1025166331 instance=ExtResource("3_sb48q")]
 
-[node name="Killzone Bottom" type="Area2D" parent="." unique_id=2124716386]
-script = ExtResource("4_t88pq")
+[node name="Floor" parent="." unique_id=66209810 instance=ExtResource("4_t88pq")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone Bottom" unique_id=692241251]
-position = Vector2(144, 218)
-shape = SubResource("RectangleShape2D_r0x5m")
-
-[node name="TopPipe" parent="." unique_id=1088438839 instance=ExtResource("4_sb48q")]
+[node name="Pipes" parent="." unique_id=1088438839 instance=ExtResource("4_sb48q")]
 texture_filter = 1
-position = Vector2(146, 42)
+position = Vector2(410, 42)
+script = ExtResource("6_r0x5m")
 
 [node name="Killzone Top" parent="." unique_id=1230358515 instance=ExtResource("3_sb48q")]

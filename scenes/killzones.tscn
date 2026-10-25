@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://wyvgt5l2bxdu"]
 
-[ext_resource type="Script" uid="uid://w6arllnbodcn" path="res://scripts/csharp/KillZone.cs" id="1_djv3u"]
+[ext_resource type="Script" uid="uid://w6arllnbodcn" path="res://scripts/KillZone.cs" id="1_djv3u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nkgw6"]
 size = Vector2(610, 21)
