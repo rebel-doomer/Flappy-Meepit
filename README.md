@@ -3,3 +3,4 @@
 
  ## Credits
 Assets by Gufiao Studios and the Neopets team
+flappy bird assets by megacrash.itch.io
