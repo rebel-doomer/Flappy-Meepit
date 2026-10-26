@@ -14,5 +14,6 @@ public partial class Pipes : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		Position -= new Vector2(_speed * (float)delta, 0);
 	}
 }

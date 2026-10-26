@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://wyvgt5l2bxdu" path="res://scenes/killzones.tscn" id="3_sb48q"]
 [ext_resource type="PackedScene" uid="uid://170au8lns2f" path="res://scenes/pipe_scene.tscn" id="4_sb48q"]
 [ext_resource type="PackedScene" uid="uid://dyq8vnrpiipq8" path="res://floor.tscn" id="4_t88pq"]
-[ext_resource type="Script" path="res://scripts/PipeScene.cs" id="6_r0x5m"]
+[ext_resource type="Script" uid="uid://bbxhqu03sjb37" path="res://scripts/Pipes.cs" id="6_r0x5m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkgw6"]
 
