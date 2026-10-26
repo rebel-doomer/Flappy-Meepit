@@ -2,16 +2,31 @@
 
 [ext_resource type="Texture2D" uid="uid://ddt27p16m58ia" path="res://Gufiao_Studios_CuteFlappy_Free/Gufiao_CuteFlappy_Free/pipe.png" id="1_iloga"]
 
-[node name="Node2D" type="Node2D" unique_id=134157271]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8wqhk"]
+size = Vector2(27.000004, 161.99846)
+
+[node name="Node2D" type="Area2D" unique_id=703796302]
 
 [node name="TopPipe" type="Sprite2D" parent="." unique_id=1088438839]
 position = Vector2(-4.5474735e-13, -109)
-rotation = -3.1415927
+rotation = 3.1415925
 scale = Vector2(0.3177143, 0.2485916)
 texture = ExtResource("1_iloga")
 
-[node name="BottomPipe" type="Sprite2D" parent="TopPipe" unique_id=1333553058]
-position = Vector2(3.1475453, -929.2349)
-rotation = 3.1415925
-scale = Vector2(1.0009929, 1.1075646)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopPipe" unique_id=1391715118]
+position = Vector2(-2.2696497e-05, 16.090637)
+rotation = -3.1415925
+scale = Vector2(3.1474817, 4.022662)
+shape = SubResource("RectangleShape2D_8wqhk")
+
+[node name="BottomsPipe" type="Sprite2D" parent="TopPipe" unique_id=1333553058]
+position = Vector2(3.1475453, -929.235)
+rotation = -3.1406028
+scale = Vector2(1.0009931, 1.1075647)
+skew = -0.00038397312
 texture = ExtResource("1_iloga")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="TopPipe/BottomsPipe" unique_id=674391919]
+position = Vector2(1.5721717, 3.6263123)
+scale = Vector2(3.144359, 3.6319864)
+shape = SubResource("RectangleShape2D_8wqhk")
