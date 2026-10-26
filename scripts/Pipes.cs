@@ -19,7 +19,9 @@ public partial class Pipes : Area2D
 		Position -= new Vector2(_speed * (float)delta, 0);
 		if (Position.X < -170)
 		{
-			Position = new Vector2(442, Position.Y);
+			// Pick a random Y height between your min and max limits (adjust these numbers to fit your screen)
+			float randPipeHeight = (float)GD.RandRange(-50.0, 150.0);
+			Position = new Vector2(442, randPipeHeight);
 		}
 	}
 	private void HandlePlayerOverlap(Node2D body)
