@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dyq8vnrpiipq8" path="res://floor.tscn" id="4_t88pq"]
 [ext_resource type="Script" uid="uid://bbxhqu03sjb37" path="res://scripts/Pipes.cs" id="6_r0x5m"]
 [ext_resource type="Texture2D" uid="uid://bl503plhs55j1" path="res://assets/Background/Background2.png" id="7_3mrqo"]
+[ext_resource type="Script" uid="uid://byruur1xpwiuq" path="res://scripts/ParallaxBackground.cs" id="7_joorw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkgw6"]
 
@@ -42,11 +43,16 @@ position = Vector2(442, 31)
 script = ExtResource("6_r0x5m")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1901947864]
+script = ExtResource("7_joorw")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=211132685]
-motion_mirroring = Vector2(256, 256)
+motion_mirroring = Vector2(256, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1649969194]
-position = Vector2(12.999998, 59.499996)
-scale = Vector2(1.265625, 1.2695311)
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1399063293]
+offset_left = -147.0
+offset_top = -102.0
+offset_right = 429.0
+offset_bottom = 212.0
 texture = ExtResource("7_3mrqo")
+expand_mode = 1
+stretch_mode = 1
