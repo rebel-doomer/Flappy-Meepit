@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dyq8vnrpiipq8" path="res://floor.tscn" id="4_t88pq"]
 [ext_resource type="Script" uid="uid://bbxhqu03sjb37" path="res://scripts/Pipes.cs" id="6_r0x5m"]
 [ext_resource type="Texture2D" uid="uid://bl503plhs55j1" path="res://assets/Background/Background2.png" id="7_3mrqo"]
-[ext_resource type="Script" uid="uid://byruur1xpwiuq" path="res://scripts/ParallaxBackground.cs" id="7_joorw"]
+[ext_resource type="Script" path="res://scripts/ParallaxBackground.cs" id="7_joorw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkgw6"]
 
@@ -56,3 +56,18 @@ offset_bottom = 212.0
 texture = ExtResource("7_3mrqo")
 expand_mode = 1
 stretch_mode = 1
+
+[node name="Score" type="CanvasLayer" parent="." unique_id=972125876]
+layer = 100
+
+[node name="ScoreLabel" type="Label" parent="Score" unique_id=1959179416]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.75428766, 0.9967769, 0.99999994, 1)
+theme_override_colors/font_shadow_color = Color(4.1392445e-06, 0.67758065, 0.7229514, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/font_size = 35
+text = "0 "
