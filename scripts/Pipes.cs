@@ -4,31 +4,55 @@ using System;
 public partial class Pipes : Area2D
 {
 	[Export] 
-	private float _speed = (float)200.0;
+	private float _speed = 200.0f;
 	
-	// Called when the node enters the scene tree for the first time.
+	private bool _hasScored = false; // Prevents scoring multiple times on the same pipe
+
 	public override void _Ready()
 	{
-		// base._Ready();
 		BodyEntered += HandlePlayerOverlap;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 		Position -= new Vector2(_speed * (float)delta, 0);
 		if (Position.X < -170)
 		{
-			// Pick a random Y height between your min and max limits (adjust these numbers to fit your screen)
 			float randPipeHeight = (float)GD.RandRange(-50.0, 150.0);
 			Position = new Vector2(442, randPipeHeight);
+			_hasScored = false; // Reset when pipe recycles
 		}
 	}
+
 	private void HandlePlayerOverlap(Node2D body)
 	{
 		if (body is Player player)
-		{ // the game restarts the level in the middle of a physics step. thus, added CallDeferred() to tell Godot to do the restart a moment later, once that step is done.
+		{
+			// If player hits the main pipe, restart the game
 			GetTree().CallDeferred(SceneTree.MethodName.ReloadCurrentScene);
+		}
+	}
+
+	// Bridge method to catch whatever default name Godot generated in the editor
+	private void _on_body_entered(Node2D body)
+	{
+		OnScoreAreaBodyEntered(body);
+	}
+
+	// The core scoring logic method
+	private void OnScoreAreaBodyEntered(Node2D body)
+	{
+		if (body is Player && !_hasScored)
+		{
+			_hasScored = true;
+
+			// Find your unique score label and add 1 directly
+			Label scoreLabel = GetTree().CurrentScene.GetNode<Label>("%ScoreLabel");
+			if (scoreLabel != null)
+			{
+				int currentScore = int.Parse(scoreLabel.Text);
+				scoreLabel.Text = (currentScore + 1).ToString();
+			}
 		}
 	}
 }

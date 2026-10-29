@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://170au8lns2f"]
 
+[ext_resource type="Script" uid="uid://bbxhqu03sjb37" path="res://scripts/Pipes.cs" id="1_cceg4"]
 [ext_resource type="Texture2D" uid="uid://ddt27p16m58ia" path="res://Gufiao_Studios_CuteFlappy_Free/Gufiao_CuteFlappy_Free/pipe.png" id="1_iloga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cceg4"]
+size = Vector2(40, 71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8wqhk"]
 size = Vector2(27.000004, 161.4469)
 
 [node name="Pipes" type="Area2D" unique_id=1953783193]
+script = ExtResource("1_cceg4")
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=319780690]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=99028831]
+position = Vector2(-1, 3.5)
+shape = SubResource("RectangleShape2D_cceg4")
 
 [node name="TopPipe" type="Sprite2D" parent="." unique_id=1088438839]
 position = Vector2(-7.713602e-06, -160.08487)
@@ -29,3 +40,5 @@ position = Vector2(-0.5358228, 168.29897)
 rotation = 0.0007743266
 scale = Vector2(0.9999999, 1.55917)
 shape = SubResource("RectangleShape2D_8wqhk")
+
+[connection signal="body_entered" from="." to="." method="OnScoreAreaBodyEntered"]
