@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dvxioiltrqqa6"]
+
+[ext_resource type="Script" uid="uid://7pt1b07e7k5h" path="res://scripts/Player.gd" id="1_xkndl"]
+[ext_resource type="Texture2D" uid="uid://ccg1m6aydlhfr" path="res://assets/Meepits/Meepit_faerie.webp" id="2_u44n3"]
+[ext_resource type="PackedScene" uid="uid://wyvgt5l2bxdu" path="res://scenes/killzones.tscn" id="3_sb48q"]
+[ext_resource type="PackedScene" uid="uid://170au8lns2f" path="res://scenes/pipe_scene.tscn" id="4_sb48q"]
+[ext_resource type="PackedScene" uid="uid://dyq8vnrpiipq8" path="res://floor.tscn" id="4_t88pq"]
+[ext_resource type="Texture2D" uid="uid://bl503plhs55j1" path="res://assets/Background/Background2.png" id="7_3mrqo"]
+[ext_resource type="Script" uid="uid://cpdu0bce4eng8" path="res://scripts/Score.gd" id="9_2vekm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nkgw6"]
+
+[node name="Game" type="Node2D" unique_id=1432982470]
+
+[node name="Player" type="RigidBody2D" parent="." unique_id=81245432]
+mass = 0.6
+gravity_scale = 0.7
+script = ExtResource("1_xkndl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1002837499]
+shape = SubResource("CircleShape2D_nkgw6")
+
+[node name="Meepit" type="Sprite2D" parent="Player" unique_id=32744722]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.375, 0.35625002)
+texture = ExtResource("2_u44n3")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=271766267]
+offset = Vector2(140, 60)
+zoom = Vector2(2, 2)
+
+[node name="Killzone Top Top" parent="." unique_id=1025166331 instance=ExtResource("3_sb48q")]
+
+[node name="Killzone Top" parent="." unique_id=1230358515 instance=ExtResource("3_sb48q")]
+
+[node name="Floor" parent="." unique_id=66209810 instance=ExtResource("4_t88pq")]
+
+[node name="Pipes" parent="." unique_id=1088438839 instance=ExtResource("4_sb48q")]
+texture_filter = 1
+position = Vector2(442, 31)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1901947864]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=211132685]
+motion_mirroring = Vector2(256, 0)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1399063293]
+offset_left = -147.0
+offset_top = -102.0
+offset_right = 429.0
+offset_bottom = 212.0
+texture = ExtResource("7_3mrqo")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Score" type="CanvasLayer" parent="." unique_id=972125876]
+layer = 100
+script = ExtResource("9_2vekm")
+
+[node name="ScoreLabel" type="Label" parent="Score" unique_id=1959179416]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 80.0
+theme_override_colors/font_color = Color(0.75428766, 0.9967769, 0.99999994, 1)
+theme_override_colors/font_shadow_color = Color(4.1392445e-06, 0.67758065, 0.7229514, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_font_sizes/font_size = 35
+text = "0 "
+
+[node name="Msg" type="Label" parent="Score" unique_id=1436481252]
+offset_right = 40.0
+offset_bottom = 23.0

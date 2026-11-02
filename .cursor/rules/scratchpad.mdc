@@ -1,0 +1,15 @@
+---
+description: The thought dump lives in .cursor/scratchpad.md. Do not chase it unless asked.
+alwaysApply: true
+---
+
+# Scratchpad
+
+The human keeps a thought dump in `.cursor/scratchpad.md` while working.
+
+- That file is the source of truth for the dump.
+- Those items are **not** the current task.
+- Do **not** switch to dump items unless the human asks.
+- Stay on the work in progress. Capture is handled by the Scratchpad extension sidebar.
+- When asked to organize, regroup, prune, drop, or mark dump notes done, use `/organize-scratchpad`.
+- When asked what’s in the dump or for a briefing, use `/brief-scratchpad`.
